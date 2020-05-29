@@ -28,7 +28,11 @@ include __DIR__ . '/partials/templates/head.php';
                     </li>
                 </ul>
             </div>
-            <a href="./">&lt; back to archive</a>
+            
+            <a class="btn btn-primary" href="<?php echo $base_path;?>/edit.php?id=<?php echo $room['id'];?>">
+                Update
+            </a>
+
         </div>
     </div>
 </main>
