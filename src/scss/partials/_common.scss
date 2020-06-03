@@ -1,4 +1,12 @@
 body {
     color: $text-col;
     background: $bg-col;
+
+    // MAIN LAYOUT
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#app {
+    flex-grow: 1;
 }

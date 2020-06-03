@@ -14,14 +14,17 @@ $floor = $_POST['floor'];
 
 // perform update
 $sql = "UPDATE `stanze`
-SET `room_number` = $room_number, `beds` = $beds, `floor` = $floor
-WHERE `id` = $id_room";
+SET `room_number` = ?, `beds` = ?, `floor` = ?,  `updated_at` =  NOW()	  
+WHERE `id` = ?”;
+$stmt = $conn->prepare($sql);
 
-$result = $conn->query($sql);
+$stmt->bind_param('iiii', $room_number, $beds, $floor, $id_room);
 
-if ($result && $conn->affected_rows > 0) {
-    header("Location: $base_path/show.php?id=$id_room");
-} elseif ($result) {
+$stmt->execute(); 
+
+if ($stmt && $stmt->affected_rows > 0) {
+    header("Location: $base_path". "show.php?id=$id_room");
+} elseif ($stmt) {
     die('Nessuna room trovata');
 } else {
     die('Si è verificato un errore');

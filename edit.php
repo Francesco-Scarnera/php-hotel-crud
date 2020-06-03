@@ -29,6 +29,9 @@ include __DIR__ . '/partials/templates/head.php';
                     <input class="btn btn-primary" type="submit" value="Save">
                 </div>
             </form> 
+            <a class="btn btn-primary" href="<?php echo $base_path;?>show.php?id=<?php echo $room['id'];?>">
+                Room details
+            </a>
         </div>
     </div>
 </main>
